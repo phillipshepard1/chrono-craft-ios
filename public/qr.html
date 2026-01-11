@@ -70,38 +70,16 @@
 
   <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
   <script>
-    async function getExpoUrl() {
-      try {
-        const response = await fetch('http://localhost:8081');
-        const text = await response.text();
-        const match = text.match(/"hostUri":"([^"]+)"/);
-        if (match) {
-          return `exp://${match[1]}`;
-        }
-      } catch (e) {
-        console.error(e);
-      }
-      return null;
-    }
-
-    async function init() {
-      const url = await getExpoUrl();
-      if (url) {
-        document.getElementById('expo-url').textContent = url;
-        new QRCode(document.getElementById('qr-code'), {
-          text: url,
-          width: 256,
-          height: 256,
-          colorDark: '#000000',
-          colorLight: '#ffffff',
-          correctLevel: QRCode.CorrectLevel.H
-        });
-      } else {
-        document.getElementById('expo-url').textContent = 'Failed to get Expo URL. Make sure the server is running.';
-      }
-    }
-
-    init();
+    const url = 'exp://qt9ghow-anonymous-8081.exp.direct';
+    document.getElementById('expo-url').textContent = url;
+    new QRCode(document.getElementById('qr-code'), {
+      text: url,
+      width: 256,
+      height: 256,
+      colorDark: '#000000',
+      colorLight: '#ffffff',
+      correctLevel: QRCode.CorrectLevel.H
+    });
   </script>
 </body>
 </html>
