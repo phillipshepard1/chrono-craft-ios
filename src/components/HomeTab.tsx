@@ -7,7 +7,9 @@ import {
   ArrowUpRight,
   Sparkles,
   Instagram,
-  Twitter
+  Twitter,
+  Flame,
+  ChevronRight
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -104,7 +106,11 @@ function TodoItem({ text, completed, time, platform }: TodoItemProps) {
   );
 }
 
-export function HomeTab() {
+interface HomeTabProps {
+  onNavigateToChallenges?: () => void;
+}
+
+export function HomeTab({ onNavigateToChallenges }: HomeTabProps) {
   const currentHour = new Date().getHours();
   const greeting = currentHour < 12 ? "Good morning" : currentHour < 18 ? "Good afternoon" : "Good evening";
 
@@ -138,6 +144,32 @@ export function HomeTab() {
           />
         </div>
 
+        {/* Weekly Challenges Widget */}
+        <button 
+          onClick={onNavigateToChallenges}
+          className="w-full bg-gradient-to-br from-orange-500/20 via-rose-500/10 to-purple-500/20 rounded-2xl p-4 card-elevated border border-orange-500/20 ios-bounce text-left"
+        >
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-orange-500 to-rose-500 flex items-center justify-center shadow-lg">
+                <Flame className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-foreground">Weekly Challenges</h3>
+                <p className="text-sm text-muted-foreground">10 content ideas for this week</p>
+              </div>
+            </div>
+            <ChevronRight className="w-5 h-5 text-muted-foreground" />
+          </div>
+          <div className="mt-3 flex gap-2">
+            <span className="text-2xl">☕</span>
+            <span className="text-2xl">🎬</span>
+            <span className="text-2xl">🎤</span>
+            <span className="text-2xl">📊</span>
+            <span className="text-lg text-muted-foreground">+6 more</span>
+          </div>
+        </button>
+
         {/* AI Insights Card */}
         <div className="bg-card rounded-2xl card-elevated overflow-hidden">
           <div className="p-4 flex items-center gap-3 border-b border-border/50">
@@ -156,7 +188,6 @@ export function HomeTab() {
             </p>
           </div>
         </div>
-
         {/* Today's Tasks */}
         <div>
           <div className="flex items-center justify-between mb-3 px-1">
