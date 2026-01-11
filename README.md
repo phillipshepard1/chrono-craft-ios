@@ -1,73 +1,85 @@
-# Welcome to your Lovable project
+# Social Media Planner - React Native App
 
-## Project info
+A mobile-first social media content planner built with React Native and Expo.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Getting Started
 
-## How can I edit this code?
+### Prerequisites
 
-There are several ways of editing your application.
+- Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- Expo Go app on your phone:
+  - [iOS - App Store](https://apps.apple.com/app/apple-store/id982107779)
+  - [Android - Google Play](https://play.google.com/store/apps/details?id=host.exp.exponent)
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+### Installation
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
+# Step 1: Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
+# Step 2: Navigate to the project directory
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Step 3: Install dependencies
+npm install --legacy-peer-deps
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+# Step 4: Start the Expo development server
+npm start
 ```
 
-**Edit a file directly in GitHub**
+### Viewing the QR Code
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+After running `npm start`, you'll see a QR code in your terminal.
 
-**Use GitHub Codespaces**
+**To run the app on your phone:**
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+1. Open the Expo Go app on your device
+2. Scan the QR code displayed in your terminal
+3. The app will load on your phone
 
-## What technologies are used for this project?
+**Alternative methods:**
+- Press `i` to open iOS simulator (requires macOS with Xcode)
+- Press `a` to open Android emulator (requires Android Studio setup)
+- Press `w` to open in web browser
 
-This project is built with:
+## Technologies Used
 
-- Vite
+- React Native
+- Expo
 - TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- React Navigation
+- TanStack Query (React Query)
 
-## How can I deploy this project?
+## Project Structure
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+```
+├── App.tsx                    # Main entry point
+├── app.json                   # Expo configuration
+├── src/
+│   └── screens/              # App screens
+│       ├── HomeScreen.tsx
+│       ├── LoginScreen.tsx
+│       ├── RegisterScreen.tsx
+│       └── ForgotPasswordScreen.tsx
+```
 
-## Can I connect a custom domain to my Lovable project?
+## Features
 
-Yes, you can!
+- Dashboard with stats and insights
+- Weekly content challenges
+- Task management
+- Quick actions
+- Navigation between tabs
+- Authentication screens
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Troubleshooting
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+If you encounter dependency issues during installation, use:
+```sh
+npm install --legacy-peer-deps
+```
+
+If the QR code doesn't appear, make sure:
+1. Your phone and computer are on the same WiFi network
+2. Your firewall isn't blocking the connection
+3. You have the latest version of Expo Go installed
