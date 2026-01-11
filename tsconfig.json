@@ -12,13 +12,6 @@
     "src/screens/**/*"
   ],
   "exclude": [
-    "node_modules",
-    "src/pages",
-    "src/components",
-    "src/main.tsx",
-    "src/App.tsx",
-    "vite.config.ts",
-    "tailwind.config.ts",
-    "postcss.config.js"
+    "node_modules"
   ]
 }
