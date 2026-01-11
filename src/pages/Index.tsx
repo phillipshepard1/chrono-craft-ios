@@ -1,21 +1,34 @@
 import { useState } from "react";
 import { BottomNav } from "@/components/BottomNav";
-import { ContentTab } from "@/components/ContentTab";
-import { CalendarTab } from "@/components/CalendarTab";
-import { SettingsTab } from "@/components/SettingsTab";
+import { HomeTab } from "@/components/HomeTab";
+import { PlanTab } from "@/components/PlanTab";
+import { InboxTab } from "@/components/InboxTab";
+import { MoreTab } from "@/components/MoreTab";
+import { CreateModal } from "@/components/CreateModal";
 
-type Tab = "content" | "calendar" | "settings";
+type Tab = "home" | "plan" | "create" | "inbox" | "more";
 
 const Index = () => {
-  const [activeTab, setActiveTab] = useState<Tab>("content");
+  const [activeTab, setActiveTab] = useState<Tab>("home");
+  const [isCreateOpen, setIsCreateOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-background">
-      {activeTab === "content" && <ContentTab />}
-      {activeTab === "calendar" && <CalendarTab />}
-      {activeTab === "settings" && <SettingsTab />}
+      {activeTab === "home" && <HomeTab />}
+      {activeTab === "plan" && <PlanTab />}
+      {activeTab === "inbox" && <InboxTab />}
+      {activeTab === "more" && <MoreTab />}
       
-      <BottomNav activeTab={activeTab} onTabChange={setActiveTab} />
+      <BottomNav 
+        activeTab={activeTab} 
+        onTabChange={setActiveTab}
+        onCreateClick={() => setIsCreateOpen(true)}
+      />
+      
+      <CreateModal 
+        isOpen={isCreateOpen} 
+        onClose={() => setIsCreateOpen(false)} 
+      />
     </div>
   );
 };
